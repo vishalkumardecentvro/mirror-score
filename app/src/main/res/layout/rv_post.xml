@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_marginBottom="10dp"
+  app:strokeColor="@color/brand_color_dark"
+  app:strokeWidth="1dp"
+  android:elevation="5dp"
+  android:layout_height="wrap_content">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="5dp">
+
+      <com.google.android.material.card.MaterialCardView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:cardCornerRadius="25dp">
+
+        <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:src="@drawable/account"
+          app:tint="@color/brand_color_dark" />
+      </com.google.android.material.card.MaterialCardView>
+
+      <TextView
+        android:id="@+id/tvStudentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:text="Vishal kumar"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+      <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_time"
+        app:tint="@color/brand_color_dark" />
+
+      <TextView
+        android:id="@+id/tvPosted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:text="Posted 10 min ago"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+      <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/vertical_line"
+        app:tint="@color/brand_color_dark" />
+
+      <TextView
+        android:id="@+id/tvClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:text="Class10"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <TextView
+      android:id="@+id/tvQuestions"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="5dp"
+      android:text="Here we will post question"
+      android:textColor="@color/black"
+      android:textSize="18sp" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
+        android:src="@drawable/like"
+        app:tint="@color/brand_color_dark" />
+
+      <TextView
+        android:id="@+id/tvUpvotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:text="Upvotes(5)"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+      <ImageView
+        android:layout_width="15dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/vertical_line"
+        app:tint="@color/brand_color_dark" />
+
+      <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
+        android:src="@drawable/reply"
+        app:tint="@color/brand_color_dark" />
+
+      <TextView
+        android:id="@+id/tvReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:text="Reply(5)"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+      <ImageView
+        android:layout_width="15dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/vertical_line"
+        app:tint="@color/brand_color_dark" />
+
+      <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
+        android:src="@drawable/report"
+        app:tint="@color/brand_color_dark" />
+
+      <TextView
+        android:id="@+id/tvReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:text="Report(5)"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
