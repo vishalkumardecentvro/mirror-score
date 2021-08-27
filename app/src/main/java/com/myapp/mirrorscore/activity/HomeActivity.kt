@@ -5,14 +5,17 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.myapp.mirrorscore.Connection
 import com.myapp.mirrorscore.R
+import com.myapp.mirrorscore.adapter.PostsAdapter
 import com.myapp.mirrorscore.table.Post
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.android.synthetic.main.activity_home.*
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class HomeActivity : AppCompatActivity() {
+
+  val key =
+    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNTg4MDA1LCJqdGkiOiIyYWE4YzQzZmZkZWE0YjZhYjU1NWJiNDJlNGNiZjlmNiIsInVzZXJfaWQiOjF9.4bo5uMDzIfC4v4q_t8w9gdPD7lP8-sn77Y0_oPbGrh4"
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -38,20 +41,21 @@ class HomeActivity : AppCompatActivity() {
   }
 
   fun load() {
-    GlobalScope.launch(Dispatchers.Main) {
-      val authToken : String = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNTg4MDA1LCJqdGkiOiIyYWE4YzQzZmZkZWE0YjZhYjU1NWJiNDJlNGNiZjlmNiIsInVzZXJfaWQiOjF9.4bo5uMDzIfC4v4q_t8w9gdPD7lP8-sn77Y0_oPbGrh4"
-      val response: Response<List<Post>> = withContext(Dispatchers.IO) { Connection().api.getAllPost(authToken) }
-      if(response.isSuccessful){
-        response.body()?.let {
-          Log.i("--userName--",it.get(0).userName)
+    val post = Connection.postInstance.getAllPost(key)
+    post.enqueue(object : Callback<Post> {
+      override fun onResponse(call: Call<Post>, response: Response<Post>) {
+        val post = response.body()
+        if (post != null) {
+          Log.d("name", post.Result.data.get(0).userName)
+          rvPost.adapter = PostsAdapter(post.Result.data)
         }
       }
-      else{
-        Log.e("--statusCode--",response.code().toString())
-        Log.e("error",response.errorBody().toString())
-      }
-    }
 
+      override fun onFailure(call: Call<Post>, t: Throwable) {
+        Log.e("error", t.toString())
+      }
+
+    })
   }
 
 }

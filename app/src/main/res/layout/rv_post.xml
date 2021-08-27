@@ -16,6 +16,7 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_weight="1"
       android:orientation="horizontal"
       android:padding="5dp">
 
@@ -32,14 +33,15 @@
       </com.google.android.material.card.MaterialCardView>
 
       <TextView
-        android:id="@+id/tvStudentName"
+        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_margin="5dp"
+        android:padding="5dp"
         android:text="Vishal kumar"
+        android:layout_weight="1"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
 
       <ImageView
         android:layout_width="15dp"
@@ -53,10 +55,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:padding="5dp"
         android:text="Posted 10 min ago"
         android:textColor="@color/black"
-        android:textSize="12sp" />
+        android:textSize="10sp" />
 
       <ImageView
         android:layout_width="15dp"
@@ -69,11 +72,12 @@
         android:id="@+id/tvClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_gravity="center_vertical"
-        android:layout_margin="5dp"
+        android:padding="5dp"
         android:text="Class10"
         android:textColor="@color/black"
-        android:textSize="12sp" />
+        android:textSize="10sp" />
 
     </LinearLayout>
 

@@ -1,22 +1,27 @@
 package com.myapp.mirrorscore
 
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.GsonBuilder
 import com.myapp.mirrorscore.table.Post
-import retrofit2.Response
+import com.myapp.mirrorscore.table.Result
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
 
-class Connection {
-  private val baseUrl : String = "https://mirrorscore-android.herokuapp.com/discussionWall/"
-  private val gson = GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
-  private val retrofit = Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create(gson)).build()
-  val api = retrofit.create(getPostInterface::class.java)
+private val baseUrl: String = "https://mirrorscore-android.herokuapp.com/discussionWall/"
+
+object Connection {
+  val postInstance: PostInterface
+
+  init {
+    val retrofit = Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build()
+    postInstance = retrofit.create(PostInterface::class.java)
+  }
 }
 
-interface getPostInterface {
+interface PostInterface {
   @GET("post?userId=1")
-  suspend fun getAllPost(@Header("Authorization")authToken : String):Response<List<Post>>
+  fun getAllPost(
+    @Header("Authorization") authToken: String
+  ): Call<Post>
 }
