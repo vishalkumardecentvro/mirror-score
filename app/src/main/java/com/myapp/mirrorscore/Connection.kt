@@ -5,8 +5,10 @@ import com.myapp.mirrorscore.table.Result
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.POST
 
 private val baseUrl: String = "https://mirrorscore-android.herokuapp.com/discussionWall/"
 
@@ -24,4 +26,7 @@ interface PostInterface {
   fun getAllPost(
     @Header("Authorization") authToken: String
   ): Call<Post>
+
+  @POST("answerupvote?userId=1")
+  fun updateUpvoteCount(@Body answerId:Int,@Header("Authorization") authToken: String):Call<Void>
 }
